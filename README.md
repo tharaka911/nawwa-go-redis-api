@@ -47,11 +47,13 @@ WorkingDirectory=<executable location>
 WantedBy=multi-user.target
 ```
 #### View the logs
+##### last logs -> 
 ```sh
-last logs -> journalctl -xeu nawwa-go-redis-api
+journalctl -xeu nawwa-go-redis-api
 ```
+##### live logs -> 
 ```sh
-live logs -> journalctl -xeu nawwa-go-redis-api -f
+journalctl -xeu nawwa-go-redis-api -f
 ```
 #### service manipulation 
 ```sh
