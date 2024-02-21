@@ -31,12 +31,12 @@ go build .
 ### how to run go binaries as a service in linux
 
 ```sh
-nano /lib/systemd/system/golanghttp.service
+nano /lib/systemd/system/nawwa-go-redis-api.service
 ```
 #### adding the below lines to golanghttp.service
 ```sh
 [Unit]
-Description=golanghttp
+Description=nawwa-go-redis-api
 [Service]
 Type=simple
 Restart=always
@@ -48,20 +48,20 @@ WantedBy=multi-user.target
 ```
 #### View the logs
 ```sh
-last logs -> journalctl -xeu golanghttp
+last logs -> journalctl -xeu nawwa-go-redis-api
 ```
 ```sh
-live logs -> journalctl -xeu golanghttp -f
+live logs -> journalctl -xeu nawwa-go-redis-api -f
 ```
 #### service manipulation 
 ```sh
-service golanghttp start
+service nawwa-go-redis-api start
 ```
 ```sh
-service golanghttp status
+service nawwa-go-redis-api status
 ```
 ```sh
-service golanghttp stop
+service nawwa-go-redis-api stop
 ```
 #### more infor
 ```sh
