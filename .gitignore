@@ -1,0 +1,20 @@
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+*.so
+
+# Executables
+*.exe
+*.out
+
+# Go binary
+/bin/
+
+# Dependency directories (remove the ones you don't need)
+/vendor/
+
+
+
+# Output directories (remove the ones you don't need)
+/dist/
+/build/
