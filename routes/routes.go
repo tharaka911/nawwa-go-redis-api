@@ -24,6 +24,8 @@ func SetupRouter() *gin.Engine {
 	r.PUT("/posts/:id", controllers.PostUpdate)
 	r.DELETE("/posts/:id", controllers.PostDelete)
 
+	r.POST("/message", controllers.WriteMessageToQueue)
+
 	return r
 
 }
