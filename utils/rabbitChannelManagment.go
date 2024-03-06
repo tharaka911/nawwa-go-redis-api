@@ -14,7 +14,7 @@ var channelPool = make(chan *amqp.Channel, maxChannels)
 func InitChannelPool() {
     for i := 0; i < maxChannels; i++ {
         channel, err := initializers.RabbitMQConn.Channel()
-		failOnError(err, "Failed to open a channel")
+		FailOnError(err, "Failed to open a channel")
         channelPool <- channel
     }
 	// fmt.Println("length of the channel = ",len(channelPool))
@@ -28,7 +28,7 @@ func CloseChannelPool() {
 	}
 }
 
-func failOnError(err error, msg string) {
+func FailOnError(err error, msg string) {
 	if err != nil {
 		log.Panicf("%s: %s", msg, err)
 	}
@@ -58,5 +58,18 @@ func GetChannel() (*amqp.Channel, error) {
 
 func ReturnChannel(channel *amqp.Channel) {
 	channelPool <- channel
+}
+
+
+//make a one channel for the rabbitmq
+
+func GetAChannel() (*amqp.Channel, error) {
+	channel, err := initializers.RabbitMQConn.Channel()
+	FailOnError(err, "Failed to open a channel")
+	return channel, nil
+}
+
+func CloseAChannel(channel *amqp.Channel) {
+	channel.Close()
 }
 

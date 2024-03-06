@@ -4,7 +4,7 @@ import (
 	amqp "github.com/rabbitmq/amqp091-go"
 	"log"
 	"context"
-	// "fmt"
+	
 )
 
 var ctx = context.Background()
@@ -13,7 +13,7 @@ func WriteMessageToQueue(message string) {
 
 	// Get a channel from the pool
 	channel, err := GetChannel()
-	failOnError(err, "Failed to open a channel")
+	FailOnError(err, "Failed to open a channel")
 	// fmt.Println(channel, "channel from the pool")
 
 	defer ReturnChannel(channel)
@@ -27,7 +27,7 @@ func WriteMessageToQueue(message string) {
 		false,       // no-wait
 		nil,         // arguments
 	)
-	failOnError(err, "Failed to declare a queue")
+	FailOnError(err, "Failed to declare a queue")
 
 	// Send a message to the queue
 	err = channel.PublishWithContext(ctx,
@@ -39,7 +39,7 @@ func WriteMessageToQueue(message string) {
 			ContentType: "text/plain",
 			Body:        []byte(message),
 		})
-	failOnError(err, "Failed to publish a message")
+	FailOnError(err, "Failed to publish a message")
 	log.Printf(" [x] Sent %s\n", message)
 
 	//return the channel to the pool
