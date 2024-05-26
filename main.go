@@ -23,6 +23,8 @@ func main() {
 	var port = os.Getenv("PORT")
 	// Start the server
 	log.Fatal(http.ListenAndServe(":"+port, r))
+
 	fmt.Println("Server started on port " + port)
+
 
 }
