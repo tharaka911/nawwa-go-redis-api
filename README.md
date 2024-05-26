@@ -7,13 +7,20 @@ install git
 ```sh
 cd /tmp && wget https://go.dev/dl/go1.22.2.linux-amd64.tar.gz && tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz
 ```
+
+##### open the bashrc under root user
+```sh
+cd && nano .bashrc
 ```
-export PATH=$PATH:/usr/local/go/bin && go version
-or
-cd
-nano .bashrc
-add below line
+
+##### add below line at the below of .bashrc
+```sh
 export PATH=$PATH:/usr/local/go/bin
+```
+##### save and exit
+
+##### reload the bashrc
+```sh
 source .bashrc
 ```
 #### 1 clone the code
@@ -26,7 +33,7 @@ go run main.go
 ```
 #### 3 build the binaries
 ```sh
-go build .
+go build main.go
 ```
 ### how to run go binaries as a service in linux
 
@@ -41,7 +48,7 @@ Description=nawwa-go-redis-api
 Type=simple
 Restart=always
 RestartSec=5s
-ExecStart=<executable location>/go-redis-api
+ExecStart=<executable location>/main
 WorkingDirectory=<executable location>
 [Install]
 WantedBy=multi-user.target
@@ -65,8 +72,5 @@ service nawwa-go-redis-api status
 ```sh
 service nawwa-go-redis-api stop
 ```
-#### more infor
-```sh
-https://medium.com/@mnabilarta/deploying-go-app-on-ubuntu-server-e5d1e45162ca
-```
+
 
