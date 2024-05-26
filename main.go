@@ -25,6 +25,7 @@ func main() {
 	log.Fatal(http.ListenAndServe(":"+port, r))
 
 	fmt.Println("Server started on port " + port)
+//checking for conflicts
 
 
 }
