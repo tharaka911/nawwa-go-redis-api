@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/tharaka911/go-redis-api/initializers"
-	"github.com/tharaka911/go-redis-api/routes"
 	"log"
 	"net/http"
 	"os"
-	
+
+	"github.com/tharaka911/go-redis-api/initializers"
+	"github.com/tharaka911/go-redis-api/routes"
 )
 
 func init() {
@@ -23,6 +23,8 @@ func main() {
 	var port = os.Getenv("PORT")
 	// Start the server
 	log.Fatal(http.ListenAndServe(":"+port, r))
-	fmt.Println("Server fire on " + port)
+
+	fmt.Println("Server started on port " + port)
+
 
 }
