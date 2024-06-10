@@ -18,15 +18,15 @@ export PATH=$PATH:/usr/local/go/bin
 ```sh
 source .bashrc
 ```
-#### 1 clone the code
+#### 1. clone the code
 ```sh
 git clone https://github.com/tharaka911/nawwa-go-redis-api.git
 ```
-#### 2 run the application
+#### 2. run the application
 ```sh
 go run main.go
 ```
-#### 3 build the binaries
+#### 3. build the binaries
 ```sh
 go build main.go
 ```
