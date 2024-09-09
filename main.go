@@ -21,6 +21,8 @@ func main() {
 	r := routes.SetupRouter()
 	
 	var port = os.Getenv("PORT")
+
+	fmt.Println("Server started on port " + port)
 	// Start the server
 	log.Fatal(http.ListenAndServe(":"+port, r))
 
